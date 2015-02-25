@@ -9,7 +9,16 @@ var mimeTypes = {
     kml: 'application/vnd.google-earth.kml+xml'
 };
 
-$('#dms').keyup(function() {
+$('#dms')
+    .keyup(onKeyup)
+    .focus(onFocus)
+    .focus()
+    .trigger("keyup");
+
+$('#dec')
+    .focus(onFocus);
+
+function onKeyup() {
     var input = this.value.split('\n'),
         output = [],
         errors = [],
@@ -66,5 +75,8 @@ $('#dms').keyup(function() {
     } else {
         $('#download-links').addClass('hidden');
     }
+}
 
-}).trigger("keyup");
+function onFocus() {
+    $(this).select();
+}
