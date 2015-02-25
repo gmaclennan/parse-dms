@@ -1,5 +1,13 @@
 var $ = require('jquery');
 var parseDMS = require('parse-dms');
+var csv2geojson = require('csv2geojson');
+var tokml = require('tokml');
+
+var mimeTypes = {
+    csv: 'text/csv',
+    geojson: 'application/json',
+    kml: 'application/vnd.google-earth.kml+xml'
+};
 
 $('#dms').keyup(function() {
     var input = this.value.split('\n'),
@@ -29,12 +37,34 @@ $('#dms').keyup(function() {
     }
 
     if (output.length) {
-        $('#download-link')
-            .removeClass('hidden')
-            .attr('href','data:text/csv;charset=utf8,' + encodeURIComponent(output.join('\n')))
-            .attr('download','coords.csv');
+        $("#download-links").removeClass('hidden');
+
+        var downloads = {};
+
+        downloads.csv = "lat,lon\n" + output.join('\n');
+
+        csv2geojson.csv2geojson(downloads.csv, function(err, data) {
+            if (err) downloads['geojson-points'] = "";
+            downloads['geojson-points'] = data;
+        });
+
+        downloads['geojson-line'] = csv2geojson.toLine(downloads['geojson-points']);
+        downloads['geojson-polygon'] = csv2geojson.toPolygon(downloads['geojson-points']);
+
+        downloads['kml-points'] = tokml(downloads['geojson-points']);
+        downloads['kml-line'] = tokml(downloads['geojson-line']);
+        downloads['kml-polygon'] = tokml(downloads['geojson-polygon']);
+
+        for (var prop in downloads) {
+            var type = prop.split('-')[0];
+
+            var content = type === 'geojson' ? JSON.stringify(downloads[prop]) : downloads[prop];
+
+            $('#' + prop + '-download')
+                .attr('href','data:' + mimeTypes[type] + ';charset=utf8,' + encodeURIComponent(content));
+        }
     } else {
-        $('#download-link').addClass('hidden');
+        $('#download-links').addClass('hidden');
     }
-    
+
 }).trigger("keyup");
