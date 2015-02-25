@@ -27,4 +27,4 @@ $('#dms').keyup(function() {
         $(this).parent().addClass('has-error');
         $('#error-msg').removeClass('hidden').html(msg);
     }
-});
+}).trigger("keyup");
