@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="ParseDMS : Parse degrees minutes seconds coordinates to decimal degrees">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/bootstrap-theme.css">
+
+    <title>ParseDMS</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/gmaclennan/parse-dms">View on GitHub</a>
+
+          <h1 id="project_title">ParseDMS</h1>
+          <h2 id="project_tagline">Parse degrees minutes seconds coordinates to decimal degrees</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <div class="container">
+        <br/>
+        <p>Paste a list of DMS coordinates in the left textbox. Can be single coordinates or coordinate pairs</p>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="dms">INPUT: Degrees, minutes, seconds</label>
+              <textarea class="form-control" id="dms" rows="12"></textarea>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="dec">OUTPUT: Decimal Degrees lat,lon</label>
+              <textarea class="form-control" id="dec" rows="12"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-danger hidden" id="error-msg" role="alert"></div>
+      </div>
+      <br/>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">ParseDMS maintained by <a href="https://github.com/gmaclennan">gmaclennan</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    <script src="javascripts/bundle.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "browserify javascripts/main.js > javascripts/bundle.js"
+  },
+  "author": "Gregor MacLennan",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.3",
+    "parse-dms": "0.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3"
+  }
+}
