@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gmaclennan/parse-dms.svg)](https://travis-ci.org/gmaclennan/parse-dms)
+
 parseDMS
 ========
 
