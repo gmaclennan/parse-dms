@@ -5,6 +5,10 @@ parseDMS
 
 A robust parser for degrees, minutes, seconds latitude and longitude values, with comprehensive tests.
 
+## Demo
+
+[Try it out](http://gmaclennan.github.io/parse-dms) in the browser.
+
 ## Usage
 
 ```javascript
