@@ -77,8 +77,8 @@ function decDegFromMatch(m) {
 
     sign = signIndex[m[2]] || signIndex[m[1]] || signIndex[m[6]] || 1;
     degrees = Number(m[3]);
-    minutes = Number(m[4]);
-    seconds = Number(m[5]);
+    minutes = m[4] ? Number(m[4]) : 0;
+    seconds = m[5] ? Number(m[5]) : 0;
     latLon = latLonIndex[m[1]] || latLonIndex[m[6]];
 
     if (!inRange(degrees, 0, 180)) throw 'Degrees out of range';

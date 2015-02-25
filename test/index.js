@@ -158,3 +158,39 @@ test('Throws for seconds out of range', function(t) {
     t.throws(parseDms.bind(null, '59°12\'65.5" -02°15\'39.6"'), /Seconds out of range/);
     t.end();
 });
+
+test('Correctly parses DMS with decimal minutes', function(t) {
+
+    var testData = [
+        'N59°12.105\' W02°15.66\''
+    ];
+
+    var expected = {
+        lat: 59 + 12.105 / 60,
+        lon: -1 * (2 + 15.66 / 60)
+    };
+
+    for (var i = 0; i < testData.length; i ++) {
+        t.deepEqual(parseDms(testData[i]), expected, testData[i]);
+    }
+
+    t.end();
+});
+
+test('Correctly parses DMS with no minutes or seconds', function(t) {
+
+    var testData = [
+        '59°N 02°W'
+    ];
+
+    var expected = {
+        lat: 59,
+        lon: -2
+    };
+
+    for (var i = 0; i < testData.length; i ++) {
+        t.deepEqual(parseDms(testData[i]), expected, testData[i]);
+    }
+
+    t.end();
+});
