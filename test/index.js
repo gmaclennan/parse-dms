@@ -214,3 +214,23 @@ test('Parse decimal degrees as decimal degrees', function(t) {
 
     t.end();
 });
+
+test('Parse DMS with separators and spaces', function(t) {
+
+    var testData = [
+        '59° 12\' 7.7" N 02° 15\' 39.6" W',
+        '59º 12\' 7.7" N 02º 15\' 39.6" W',
+        '59 12’ 7.7’’N 02 15’ 39.6’’W'
+    ];
+
+    var expected = {
+        lat: 59 + 12 / 60 + 7.7 / 3600,
+        lon: -1 * (2 + 15 / 60 + 39.6 / 3600)
+    };
+
+    for (var i = 0; i < testData.length; i ++) {
+        t.deepEqual(parseDms(testData[i]), expected, testData[i]);
+    }
+    
+    t.end();
+});
