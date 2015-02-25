@@ -1,0 +1,23 @@
+{
+  "name": "parse-dms",
+  "version": "0.0.1",
+  "description": "Parse degrees minutes seconds coordinates to decimal degrees",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmaclennan/parse-dms.git"
+  },
+  "author": "Gregor MacLennan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gmaclennan/parse-dms/issues"
+  },
+  "homepage": "https://github.com/gmaclennan/parse-dms",
+  "devDependencies": {
+    "tap-spec": "^2.2.1",
+    "tape": "^3.5.0"
+  }
+}
