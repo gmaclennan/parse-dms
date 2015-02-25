@@ -28,6 +28,16 @@ $('#dms').keyup(function() {
         $(this).parent().addClass('has-error');
         $('#error-msg').removeClass('hidden').html(msg);
     }
+
+    if (output.length) {
+        $('#download-link')
+            .removeClass('hidden')
+            .attr('href','data:text/csv;charset=utf8,' + encodeURIComponent(output.join('\n')))
+            .attr('download','coords.csv');
+    } else {
+        $('#download-link').addClass('hidden');
+    }
+    
 }).trigger("keyup");
 
 },{"jquery":"/Users/gregor/Dev/DdDev/parse-dms/node_modules/jquery/dist/jquery.js","parse-dms":"/Users/gregor/Dev/DdDev/parse-dms/node_modules/parse-dms/index.js"}],"/Users/gregor/Dev/DdDev/parse-dms/node_modules/jquery/dist/jquery.js":[function(require,module,exports){

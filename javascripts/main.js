@@ -27,4 +27,14 @@ $('#dms').keyup(function() {
         $(this).parent().addClass('has-error');
         $('#error-msg').removeClass('hidden').html(msg);
     }
+
+    if (output.length) {
+        $('#download-link')
+            .removeClass('hidden')
+            .attr('href','data:text/csv;charset=utf8,' + encodeURIComponent(output.join('\n')))
+            .attr('download','coords.csv');
+    } else {
+        $('#download-link').addClass('hidden');
+    }
+    
 }).trigger("keyup");
