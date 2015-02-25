@@ -194,3 +194,23 @@ test('Correctly parses DMS with no minutes or seconds', function(t) {
 
     t.end();
 });
+
+test('Parse decimal degrees as decimal degrees', function(t) {
+
+    var testData = [
+        '51.5, -0.126',
+        '51.5,-0.126',
+        '51.5 -0.126'
+    ];
+
+    var expected = {
+        lat: 51.5,
+        lon: -0.126
+    };
+
+    for (var i = 0; i < testData.length; i ++) {
+        t.deepEqual(parseDms(testData[i]), expected, testData[i]);
+    }
+
+    t.end();
+});
