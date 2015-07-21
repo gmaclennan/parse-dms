@@ -6,7 +6,7 @@ module.exports = function(dmsString) {
 
     // Inspired by https://gist.github.com/JeffJacobson/2955437
     // See https://regex101.com/r/kS2zR1/3
-    var dmsRe = /([NSEW])?(-)?(\d+(?:\.\d+)?)[°º:d\s]?\s?(?:(\d+(?:\.\d+)?)['’‘′:]\s?(?:(\d{1,2}(?:\.\d+)?)(?:"|″|’’|'')?)?)?\s?([NSEW])?/i;
+    var dmsRe = /([NSEW])?(-)?(\d+(?:\.\d+)?)[°º:d\s]?\s?(?:(\d+(?:\.\d+)?)['’‘′:]\s?(?:(\d{1,2}(?:\.\d+)?)(?:"|″|’’|''|”|“)?)?)?\s?([NSEW])?/i;
 
     var result = {};
 
@@ -16,7 +16,7 @@ module.exports = function(dmsString) {
 
     if (!m1) throw 'Could not parse string';
 
-    // If dmsString starts with a hemisphere letter, then the regex can also capture the 
+    // If dmsString starts with a hemisphere letter, then the regex can also capture the
     // hemisphere letter for the second coordinate pair if also in the string
     if (m1[1]) {
         m1[6] = undefined;

@@ -5,6 +5,8 @@ test('Correctly parses DMS pairs with different separators, hemisphere at end', 
 
     var testData = [
         '59°12\'7.7"N 02°15\'39.6"W',
+        '59°12\'7.7”N 02°15\'39.6”W',
+        '59°12\'7.7“N 02°15\'39.6“W',
         '59º12\'7.7"N 02º15\'39.6"W',
         '59 12\' 7.7" N 02 15\' 39.6" W',
         '59 12\'7.7\'\'N 02 15\'39.6\'\' W',
@@ -20,7 +22,7 @@ test('Correctly parses DMS pairs with different separators, hemisphere at end', 
     for (var i = 0; i < testData.length; i ++) {
         t.deepEqual(parseDms(testData[i]), expected, testData[i]);
     }
-    
+
     t.end();
 });
 
@@ -231,6 +233,6 @@ test('Parse DMS with separators and spaces', function(t) {
     for (var i = 0; i < testData.length; i ++) {
         t.deepEqual(parseDms(testData[i]), expected, testData[i]);
     }
-    
+
     t.end();
 });
