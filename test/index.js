@@ -135,12 +135,14 @@ test('Will parse a single coordinate with hemisphere', function(t) {
 test('Will parse a single coordinate with no hemisphere and return a number', function(t) {
 
     var testData = [
+        '12.123',
         '59°12\'7.7"',
         '02°15\'39.6"',
         '-02°15\'39.6"'
     ];
 
     var expected = [
+    	12.123,
         59 + 12 / 60 + 7.7 / 3600,
         2 + 15 / 60 + 39.6 / 3600,
         -1 * (2 + 15 / 60 + 39.6 / 3600)

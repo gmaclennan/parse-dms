@@ -54,23 +54,26 @@ function normalizeCardinality(a, b) {
 module.exports = function(input) {
 	input = input.trim();
 
-	var regExpA = new RegExp('^' + TOKEN_FLOAT + TOKEN_SEPARATOR + TOKEN_FLOAT + '$', 'ig');
-	var regExpB = new RegExp('^' + TOKEN_DMS + TOKEN_WHITESPACE + TOKEN_DIR + '(?:' + TOKEN_SEPARATOR + TOKEN_DMS + TOKEN_WHITESPACE + TOKEN_DIR + ')?$', 'ig'); // 0°W, O°N
-	var regExpC = new RegExp('^' + TOKEN_DIR + TOKEN_WHITESPACE + TOKEN_DMS + '(?:' + TOKEN_SEPARATOR + TOKEN_DIR + TOKEN_WHITESPACE + TOKEN_DMS + ')?$', 'ig'); // N0, WO
+	var regExpA = new RegExp('^' + TOKEN_FLOAT + '$', 'ig');
+	var regExpB = new RegExp('^' + TOKEN_FLOAT + TOKEN_SEPARATOR + TOKEN_FLOAT + '$', 'ig');
+	var regExpC = new RegExp('^' + TOKEN_DMS + TOKEN_WHITESPACE + TOKEN_DIR + '(?:' + TOKEN_SEPARATOR + TOKEN_DMS + TOKEN_WHITESPACE + TOKEN_DIR + ')?$', 'ig'); // 0°W, O°N
+	var regExpD = new RegExp('^' + TOKEN_DIR + TOKEN_WHITESPACE + TOKEN_DMS + '(?:' + TOKEN_SEPARATOR + TOKEN_DIR + TOKEN_WHITESPACE + TOKEN_DMS + ')?$', 'ig'); // N0, WO
 
 	var match, cardinality;
 	var result = {};
 	if (match = regExpA.exec(input)) {
+		return parseFloat(match[1]);
+	} else if (match = regExpB.exec(input)) {
 		return {
 			lat: parseFloat(match[1]),
 			lon: parseFloat(match[2])
 		};
-	} else if (match = regExpB.exec(input)) {
+	} else if (match = regExpC.exec(input)) {
 		cardinality = normalizeCardinality(match[4], match[8]);
 		if (!match[4] && !match[5]) return dmsToDec(match[1], match[2], match[3]);
 		apply(match[1], match[2], match[3], cardinality[0], result);
 		apply(match[5], match[6], match[7], cardinality[1], result);
-	} else if (match = regExpC.exec(input)) {
+	} else if (match = regExpD.exec(input)) {
 		cardinality = normalizeCardinality(match[1], match[5]);
 		apply(match[2], match[3], match[4], cardinality[0], result);
 		apply(match[6], match[7], match[8], cardinality[1], result);
