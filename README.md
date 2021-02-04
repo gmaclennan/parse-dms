@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/gmaclennan/parse-dms.svg)](https://travis-ci.org/gmaclennan/parse-dms)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/gmaclennan/parse-dms/Node.js%20CI)
+![npm](https://img.shields.io/npm/v/parse-dms)
 
 parseDMS
 ========
