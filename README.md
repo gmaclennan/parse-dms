@@ -1,5 +1,5 @@
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/gmaclennan/parse-dms/Node.js%20CI)
-![npm](https://img.shields.io/npm/v/parse-dms)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/gmaclennan/parse-dms/Node.js%20CI)](https://github.com/gmaclennan/parse-dms/actions?query=workflow%3A%22Node.js+CI%22)
+[![npm](https://img.shields.io/npm/v/parse-dms)](https://www.npmjs.com/package/parse-dms)
 
 parseDMS
 ========
