@@ -28,6 +28,9 @@ test('Correctly parses DMS pairs with hemisphere at beginning', function(t) {
 
     var testData = [
         'N59°12\'7.7" W02°15\'39.6"',
+        'N 59°12\'7.7" W 02°15\'39.6"',
+        'N 59.20213888888889° W 2.261°',
+        'N 59.20213888888889 W 2.261',
         'W02°15\'39.6" N59°12\'7.7"'
     ];
 
