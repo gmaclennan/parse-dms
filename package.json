@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/gmaclennan/parse-dms",
   "devDependencies": {
-    "tap-spec": "^2.2.1",
-    "tape": "^3.5.0"
+    "tap-spec": "^5.0.0",
+    "tape": "^5.1.1"
   }
 }
