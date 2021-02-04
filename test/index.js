@@ -162,7 +162,10 @@ test('Throws for seconds out of range', function(t) {
 test('Correctly parses DMS with decimal minutes', function(t) {
 
     var testData = [
-        'N59°12.105\' W02°15.66\''
+        'N59°12.105\' W02°15.66\'',
+        'N59:12.105\' W02:15.66\'',
+        'N59:12.105 W02:15.66',
+        '59:12.105\'N 02:15.66\'W'
     ];
 
     var expected = {
